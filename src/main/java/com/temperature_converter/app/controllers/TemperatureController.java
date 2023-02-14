@@ -15,6 +15,7 @@ public class TemperatureController {
 
     @GetMapping("/")
     public String welcomeToMyAppMessage() {
+        System.out.println("welcome to my app console");
         return "Welcome to my app";
     }
 
