@@ -1,7 +1,6 @@
 package com.temperature_converter.app.controllers;
 
 import com.temperature_converter.app.models.Temperature;
-import com.temperature_converter.app.models.TemperatureTypes;
 import com.temperature_converter.app.services.ConverterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +19,8 @@ public class TemperatureController {
     }
 
     @GetMapping("/temperature_converter")
-    public Temperature getTemperature(@RequestParam() TemperatureTypes type, @RequestParam float grades) {
-        Temperature temperature = new Temperature(grades, type);
+    public Temperature getTemperature(@RequestParam() String type, @RequestParam float grades) {
+        Temperature temperature = new Temperature(type, grades);
         converterService.convertTemperature(temperature);
         return temperature;
 
